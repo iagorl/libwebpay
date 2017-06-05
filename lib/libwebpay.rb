@@ -2,21 +2,7 @@ require 'signer'
 require 'savon'
 require_relative 'verifier'
 require_relative 'webpay'
-
-class Configuration
-
-@environment
-@commerce_code
-@private_key
-@public_cert
-@webpay_cert
-@store_codes
-
-
-  #getter y setter de los elementos
-  attr_accessor :environment,:commerce_code,:private_key,:public_cert,:webpay_cert,:store_codes
-
-end
+require_relative 'config'
 
 class Libwebpay
 
@@ -34,7 +20,7 @@ class Libwebpay
 
 	def getConfiguration
       if @configuration == nil
-        @configuration = Configuration.new
+        @configuration = Config.new
       end
       return @configuration
     end
